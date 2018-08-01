@@ -68,9 +68,6 @@ public static Movie[] movies = MoviesArray.findAll();
     } else System.out.println("Thanks for visting the movie app!");
     }
 
-
-
-
         public static void main (String[]args){
            movieApp();
 
