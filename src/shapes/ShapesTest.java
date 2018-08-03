@@ -8,28 +8,7 @@ public class ShapesTest {
         System.out.println(myShape.getArea());
         System.out.println(myShape.getPerimeter());
 
-        Measurable anotherShape = new Quadrilateral(2, 4) {
-            @Override
-            public void setLength() {
-
-            }
-
-            @Override
-            public void setWidth() {
-
-            }
-
-            @Override
-            public double getPerimeter() {
-                return this.length;
-            }
-
-            @Override
-            public double getArea() {
-                return 0;
-            }
-        }
-
+        Measurable anotherShape = new Rectangle();
         System.out.println(anotherShape.getArea());
         System.out.println(anotherShape.getPerimeter());
 
