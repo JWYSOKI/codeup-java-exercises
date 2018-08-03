@@ -3,12 +3,14 @@ package grades;
 import util.Input;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class GradesApplication {
     public static void main(String[] args) {
-        HashMap<String, Student> students = new HashMap<>();
+        initApp();
+    }
 
+    public static void initApp() {
+        HashMap<String, Student> students = new HashMap<>();
         Student student1 = new Student("Jane");
         Student student2 = new Student("Sally");
         Student student3 = new Student("John");
@@ -34,28 +36,31 @@ public class GradesApplication {
         students.put("sallyhutchison", student2);
         students.put("johndough", student3);
         students.put("robertbrown", student4);
+    }
 
-        System.out.println("Welcome!\n");
-        System.out.println("Here are the github usernames of our students: \n");
-        System.out.println(students.keySet());
-        System.out.println("\nWhich student would you like to see more information on?\n");
+public static void promptUserToContinue() {
+    HashMap<String, Student> students = new HashMap<>();
 
-        Input input = new Input();
-       String userInput = input.getString();
+    System.out.println("Welcome!\n");
+    System.out.println("Here are the github usernames of our students: \n");
+    System.out.println(students.keySet());
+    System.out.println("\nWhich student would you like to see more information on?\n");
 
-        if (!students.containsKey(userInput)) {
-            System.out.println("Sorry, no student found with the github username of " + userInput);
-        }
+    Input input = new Input();
+    String userInput = input.getString();
 
-        if(students.containsKey(userInput)){
-            String name = students.get(userInput).getName();
-            double gradeAverage = students.get(userInput).getGradeAverage();
-            System.out.println("Name: " + name + " - Github Username: " + userInput + "\nCurrent Average: " + gradeAverage);
-        }
-//       public boolean recursionForStudentInfo(){
-//            if (n) {
-//                System.out.println();
-//            }
-//        }
+    if (!students.containsKey(userInput)) {
+        System.out.println("Sorry, no student found with the github username of " + userInput);
+    }
 
-    }}
+    if (students.containsKey(userInput)) {
+        String name = students.get(userInput).getName();
+        double gradeAverage = students.get(userInput).getGradeAverage();
+        System.out.println("Name: " + name + " - Github Username: " + userInput + "\nCurrent Average: " + gradeAverage);
+    } else
+        System.out.println("Goodbye and have a good day");
+    }
+
+}
+
+
